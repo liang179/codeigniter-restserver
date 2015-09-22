@@ -454,6 +454,7 @@ abstract class REST_Controller extends CI_Controller {
         $this->{'_parse_' . $this->request->method}();
 
         // Now we know all about our request, let's try and parse the body if it exists
+        // 解析使用json等指定格式的请求
         if ($this->request->format && $this->request->body)
         {
             $this->request->body = $this->format->factory($this->request->body, $this->request->format)->to_array();
